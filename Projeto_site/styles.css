@@ -10,7 +10,8 @@
 
 }
 #lateralBAr:hover{
-    animation: displayShowUp 2s linear;
+    animation-duration: 4s;
+    animation: displayShowUp 4s infinite ;
 }
 @keyframes displayShowUp{
     from{
