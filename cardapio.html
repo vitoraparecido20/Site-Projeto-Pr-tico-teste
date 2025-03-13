@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Papalégua</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section id="cardapio">
+            <h2>CARDÁPIO</h2>
+            <div class="repetir-pedido">
+                <input type="text" id="repetir-pedido-input" placeholder="Quer repetir um pedido?">
+                <button id="repetir-pedido-button">Repetir</button>
+            </div>
+            <div class="buscar-cardapio">
+                <input type="text" id="buscar-cardapio-input" placeholder="Digite para buscar no cardápio ...">
+            </div>
+            <div class="categorias">
+                <button class="categoria" data-categoria="marmita">+ Monte sua pizza</button>
+            </div>
+            <div id="itens-cardapio">
+                </div>
+        </section>
+
+        <section id="tempo-entrega">
+            <p>Tempo para retirada 5 à 15 minutos</p>
+            <p>Tempo para entrega 45 à 65 minutos</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="carrinho">
+            <p><span id="quantidade-itens">0</span> VER CARRINHO</p>
+            <p>R$ <span id="total-carrinho">0,00</span></p>
+        </div>
+    </footer>
+
+    <script src="script1.js"></script>
+</body>
+</html>
