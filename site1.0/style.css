@@ -1,0 +1,51 @@
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+body{
+    background-color: #303030;
+    color: white;
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content: space-between;
+}
+#barraLateral{
+    width:300px;
+    height:100vh;
+    background-color: #404040;
+}
+#barralist{
+    width:300px;
+    display: list-item;
+    list-style-type:none;
+    align-items: center;
+    
+}
+.barraitens a{
+    text-decoration: none;
+    color:white;
+    margin-left: 15%;
+    display: flex;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+#upp{
+    width: 1000px;  
+    display: inline-flex;
+    justify-content: space-between;
+    margin-left: 40px auto;
+    font-size: 30px;
+}
+#offer{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    height:400px;
+    padding-top: 30%;
+    background-color: #505050;
+}
