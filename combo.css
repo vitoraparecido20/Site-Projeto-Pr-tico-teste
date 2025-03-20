@@ -1,0 +1,20 @@
+body{
+    background: linear-gradient(to left, white, red, green);
+}
+
+
+
+.product-card {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
