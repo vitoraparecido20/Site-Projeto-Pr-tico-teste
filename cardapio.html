@@ -9,12 +9,98 @@
 <body>
     <main>
         <section id="cardapio">
-            <h2 class="titulo-cardapio">CARDÁPIO</h2>
-                
-            
+            <header>
+                <h2 class="titulo-cardapio">Cardápio Pizzaria Papalégua</h2>
+            </header>
+            <style>
+                body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-inline-size: 1200px;
+      margin: auto;
+    }
+
+    .pizza {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .pizza:hover {
+      transform: scale(1.03);
+    }
+
+    .pizza img {
+      inline-size: 100%;
+      block-size: 250px;
+      object-fit: cover;
+    }
+
+    .pizza-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .pizza h2 {
+      margin-block-start: 0;
+      font-size: 24px;
+      color: #000;
+    }
+
+    .pizza p {
+      margin: 10px 0;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #e74c3c;
+      font-size: 18px;
+    }
+                body { font-family: Arial, sans-serif; margin: 0; background-color: #f8f8f8; }
+                header { background-color: #222; color: white; text-align: center; padding: 2rem 0; }
+                h1 { margin: 0; font-size: 2.5rem; }
+                .cardapio { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; padding: 2rem; }
+                .pizza { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; }
+                .pizza img { inline-size: 100%; block-size: 200px; object-fit: cover; }
+                .pizza h2 { margin: 0.5rem 0; font-size: 1.3rem; }
+                .pizza p { margin: 0.5rem 1rem; font-size: 0.95rem; color: #555; }
+                .pizza .preco { font-weight: bold; color: #e67e22; margin: 0.5rem 0 1rem; }
+              </style>
+
+                <section class="cardapio">
+            <div class="menu">
+                <div class="pizza">
+                    <div class="pizza-content"></div>
             <ol class="itens-cardapio">
                 <li class="item-cardapio">
-                    <h2 class="nome-da-pizza">1 - Pizza de Queijo:</h2>
+                    <h2 class="nome-da-pizza">1 - Pizza de Queijo: </h2>
+                    <img class="nome-da-pizza1" src="./pngtree-hot-cheesy-pizza-isolated-on-transparent-background-png-image_9133346.png" height="350" width="150">
+                    <p class="price">R$36.90</p>
+                    <button onclick="adicionarAoCarrinho('Pizza de Queijo', 36.90)">Adicionar ao Carrinho</button>
                     <ol>
                          <li>Molho de tomate</li>
                          <li>Mussarela</li>
@@ -24,9 +110,20 @@
                     </ol>
                   <br> <!-- trocar a quebra de linha para px -->
                 </li>
+                </ol>
+                </div>
+                </div>
         
+
+
+                <div class="menu">
+                    <div class="pizza">
+                        <div class="pizza-content"></div>
                 <li class="item-cardapio">
-                    <h2 class="nome-da-pizza">2 - pizza de mussarela:</h2>
+                    <h2 class="nome-da-pizza2">2 - Pizza de Mussarela: </h2>
+                    <img src="./download-removebg-preview-3.png">
+                    <p class="price">R$36.90</p>
+                    <button onclick="adicionarAoCarrinho('Pizza de Mussarela', 36.90)">Adicionar ao Carrinho</button>
                     <ol>
                          <li> Molho de tomate</li>
                          <li>Mussarela</li>
@@ -37,9 +134,19 @@
                     </ol>
                   <br> <!-- trocar a quebra de linha para px -->
                 </li>
+            </div>
+        </div>
         
+
+
+                <div class="menu">
+                <div class="pizza">
+                    <div class="pizza-content"></div>
                 <li class="item-cardapio">
-                    <h2 class="nome-da-pizza">3 - pizza moda da casa</h2>
+                    <h2 class="nome-da-pizza3">3 - Pizza Moda da Casa: </h2>
+                    <img src="./21-moda-da-casa2-600x500.png">
+                    <p class="price">R$36.90</p>
+                    <button onclick="adicionarAoCarrinho('Pizza de Moda da Casa', 36.90)">Adicionar ao Carrinho</button>
                     <ol>
                          <li>Molho de tomate ou molho branco.</li>
                          <li>Queijos variados (como mussarela, provolone, e catupiry).</li>
@@ -50,9 +157,18 @@
                     </ol>
                   <br> <!-- trocar a quebra de linha para px -->
                 </li>
-        
+            </div>
+        </div>
+                
+                
+                <div class="menu">
+                <div class="pizza">
+                <div class="pizza-content"></div>
                 <li class="item-cardapio">
-                    <h2 class="nome-da-pizza">4 - pizza de margherita:</h2>
+                    <h2 class="nome-da-pizza4">4 - Pizza de Margherita: </h2>
+                    <img src="./pngtree-pizza-margherita-food-png-image_14543372.png" alt="" width="350" height="330">
+                    <p class="price">R$36.90</p>
+                    <button onclick="adicionarAoCarrinho('Pizza de Margherita', 36.90)">Adicionar ao Carrinho</button>
                     <ol>
                          <li>Molho de tomate (geralmente um molho de tomate fresco e temperado)</li>
                          <li>Mussarela de búfala (ou mussarela comum)</li>
@@ -62,9 +178,20 @@
                     </ol>
                   <br> <!-- trocar a quebra de linha para px -->
                 </li>
+            </div>
+        </div>
 
+
+
+               <div class="menu">
+                <div class="pizza">
+                    <div class="pizza-content"></div>
+                </div>
                 <li class="item-cardapio">
-                    <h2 class="nome-da-pizza">5 - pizza de pepperoni:</h2>
+                    <h2 class="nome-da-pizza5">5 - Pizza de Pepperoni: </h2>
+                    <img src="./pngtree-pizza-pepperoni-food-png-image_14529290.png" width="350" height="330">
+                    <p class="price">R$36.90</p>
+                    <button onclick="adicionarAoCarrinho('Pizza de Pepperoni', 36.90)">Adicionar ao Carrinho</button>
                     <ol>
                          <li>Queijos: Cheddar, gorgonzola, ricota.</li>
                          <li>Carnes: Pepperoni, carne moída, atum.</li>
@@ -75,6 +202,8 @@
                     </ol>
                 </li>
             </ol>
+        </div>
+    </div>
         </section>
         
             
@@ -89,10 +218,17 @@
                 <button class="categoria" data-categoria="marmita">+ Monte sua pizza</button>
             </div>
             <div id="itens-cardapio">
-                </div> 
-                
+                </div>
+            </section>
+            <script src="index2.js"></script>
+            <div class="carrinho">
+                <h2>Carrinho</h2>
+                <ul id="lista-carrinho"></ul>
+                <p>Total: R$ <span id="total-carrinho">0.00</span></p>
+              </div>
         </section>
 
+        
         <section id="tempo-entrega">
             <p></p>
             <p></p>
