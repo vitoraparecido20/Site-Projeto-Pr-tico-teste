@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    padding:0;
+}
+body{
+    height:100vh;
+    background-image: linear-gradient(to left, blue, yellow, red);
+}
+
+.menu-lateral {
+    position: fixed; /* Mantém o menu fixo na tela */
+    top: 0;
+    left: 0;
+    width: 200px; /* Largura desejada para o menu */
+    height: 100vh; /* Altura total da tela */
+    background-color: #333; /* Cor de fundo do menu */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+}
+
+.logo {
+    width: 100%; /* Largura total do contêiner do logo */
+    margin-bottom: 20px; /* Espaço abaixo do logo */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente o logo */
+}
+
+.logo img {
+    max-width: 100%; /* Largura máxima da imagem */
+    height: auto; /* Altura automática proporcional à largura */
+    border-radius: 50%; /* Deixa a imagem redonda */
+    border: 2px solid #fff; /* Adiciona borda branca */
+}
+
+.menu-lateral ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-lateral li {
+    margin-bottom: 10px;
+}
+
+.menu-lateral a {
+    color: #fff;
+    text-decoration: none;
+    display: block; /* Faz os links ocuparem toda a largura */
+    padding: 10px; /* Espaçamento interno nos links */
+    border-radius: 5px; /* Arredonda os cantos dos links */
+    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+}
+
+.menu-lateral a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Cor de fundo ao passar o mouse */
+}
+
+.conteudo {
+    margin-left: 220px; /* Ajuste a margem para não sobrepor o menu */
+    padding: 20px;
+}
