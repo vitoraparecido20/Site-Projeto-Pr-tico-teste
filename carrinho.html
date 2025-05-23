@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+  <h1>Pizzas Papaléguas</h1>
+  <p>o carrinho está vázio</p>
+  <button onclick="mostrarFormasPagamento()">Finalizar Compra</button>
+  <div id="formasPagamento">
+  <h3>escolha a forma de pagamento:</h3>
+    <div class="formasPagamento"><input type="radio" name="pagamento" value="pix"> Pix</div>
+    <details><li2>Aprovação Imediata</li2></details>
+    <div class="forma-pagamento"><input type="radio" name="pagamento" value="credito"> Crédito</div>
+    <details> <li1>sujeito a cobrança</li1></details>
+        <div class="forma-pagamento"><input type="radio" name="pagamento" value="debito"> Débito</div>
+    
+    
+    
+  <style>
+  body{
+    background-color: Blue;
+  }
+    
+    #formasPagamento{
+    display: none;
+    margin-top: 15px;
+  }
+  .forma-pagamento{
+    margin: 5px 0;
+  }
+    h1{
+      font-family: Arial;
+      color: Pink;
+    }
+  li1{
+    color: Orange;
+  }
+  li2{
+    color: Yellow;
+  }
+  </style>
+  
+    <script>
+    function mostrarFormasPagamento()
+    {
+      const divFormas = 
+      document.getElementById("formasPagamento");
+      divFormas.style.display = "block";
+    }
+    
+    
+    
+    </script>
+  
+  
+</head>
+<body>
+</body>
+</html>
