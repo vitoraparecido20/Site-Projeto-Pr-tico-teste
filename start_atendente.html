@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .btntop{
+            width:100vw;
+            height:16vh;
+            background-color: blueviolet;
+            display: flex;
+            flex-direction: row;
+        }
+        #painel{
+            width: 70%;
+            height: 100%;
+            background-color: brown;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .botao{
+            width:18%;
+            height:40%;
+            background-color: rgba(165, 42, 42, 0);
+            
+        }
+        .botao:hover{
+            background-color: rgba(155, 155, 155, 0.187);
+        }
+        #entregas{
+            padding:10px;
+        }
+        .prompt{
+            width:100vw;
+            height:84vh;
+            background-color:burlywood;
+        }
+        #entregadores{
+            width:70%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="btntop">
+        
+        <div id="painel">
+            <button class="botao" >VOLTAR </button>
+            <button class="botao" >PÁGINA INICIAL</button>
+            <button class="botao" >Designar pedido</button>
+            <button class="botao" > Mostrar dados </button>
+            <button class="botao" >SAIR</button>
+        </div>
+        <div id="entregas">
+            <label for="entregadores">entregadores disponíveis</label>
+            <select name="entregadores" id="entregadores">
+                <option value="nenhum">nenhum entregador disponível</option>    
+            </select>
+            
+
+            
+        </div>
+
+    </div>
+        <div class="prompt">
+
+    </div>
+
+
+
+    <script>
+        const entregadores = document.getElementById("entregadores");
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        console.log(usuarios);
+        
+        usuarios.forEach((user) => {
+            if (user.tipo === "entregador") {
+                console.log(user);
+                user.status = "disponivel";
+                
+                const option = document.createElement("option");
+                option.value = user.usuario; // ou user.nome, se preferir mostrar nomes
+                option.textContent = user.usuario;
+                entregadores.appendChild(option);
+            }
+        });
+
+
+        if (entregadores.children.length > 1) {
+            entregadores.removeChild(entregadores.firstElementChild);
+        }
+
+        const promptArea = document.querySelector(".prompt");
+
+// Recuperar pedidos do localStorage
+const pedidos = JSON.parse(localStorage.getItem("pedidosRecebidos")) || [];
+
+function renderizarPedidos() {
+  if (pedidos.length === 0) {
+    promptArea.innerHTML = "<h2>Nenhum pedido recebido.</h2>";
+    return;
+  }
+
+  promptArea.innerHTML = "<h2>Pedidos Recebidos:</h2>";
+
+  pedidos.forEach((pedido, index) => {
+    const div = document.createElement("div");
+    div.style.border = "1px solid black";
+    div.style.padding = "10px";
+    div.style.margin = "10px";
+    div.style.backgroundColor = "white";
+
+    let html = `
+      <p><strong>Data:</strong> ${new Date(pedido.data).toLocaleString()}</p>
+      <p><strong>Pagamento:</strong> ${pedido.pagamento}</p>
+      <p><strong>Total:</strong> R$ ${pedido.total.toFixed(2)}</p>
+      <p><strong>Pizzas:</strong></p>
+      <ul>${pedido.itens.pizzas.map(p => `<li>${p.nome} - R$ ${p.preco.toFixed(2)}</li>`).join('')}</ul>
+      <p><strong>Bebidas:</strong></p>
+      <ul>${pedido.itens.bebidas.map(b => `<li>${b.nome} - R$ ${b.preco.toFixed(2)}</li>`).join('')}</ul>
+    `;
+
+    div.innerHTML = html;
+    promptArea.appendChild(div);
+  });
+}
+
+renderizarPedidos();
+
+
+    
+    </script>
+    <script src="teste.js"></script>
+</body>
+</html>
