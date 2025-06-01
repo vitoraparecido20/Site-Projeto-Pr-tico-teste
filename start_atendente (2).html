@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .btntop{
+            width:100vw;
+            height:16vh;
+            background-color: rgb(56, 55, 57);
+            display: flex;
+            flex-direction: row;
+        }
+        #painel{
+            width: 70%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .botao{
+            width:18%;
+            height:40%;
+            background-color: rgb(156, 0, 0);
+            
+        }
+        .botao:hover{
+            background-color: rgba(208, 208, 208, 0.187);
+        }
+    button{
+        background-color: red;
+    }
+        #entregas{
+            padding:10px;
+        }
+        .visu{
+            width:100vw;
+            height:84vh;
+             background-image: linear-gradient(to right,rgb(62, 62, 62), rgb(78, 0, 0));
+            display: flex;
+            flex-direction: row;
+            
+        }
+        .prompt{
+            width:50%;
+            height:100%;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 20px;
+        }
+        #entregadores{
+            width:70%;
+        }
+        .dado{
+            background-color: darkkhaki;
+            box-shadow:2px 2px 5px rgb(129, 125, 69);
+            display: inline-flex;
+            width:100%;
+            height:40px;
+            margin-top: 15px;
+            border: 1px solid black;
+            align-items: center;
+            padding:3px;
+        }
+        .dado:hover{
+            background-color: rgb(227, 220, 128);
+
+        }
+        #console{
+            background-color: rgba(0, 0, 0, 0);
+            width:50%;
+            height:100%;
+            padding:20px;
+
+        }
+            </style>
+
+</head>
+<body>
+    <div class="btntop">
+        
+        <div id="painel">
+            <button onclick="window.location.href='cardapio.html'">VOLTAR</button>
+            <button onclick="window.location.href='index.html'">Página Inicial</button>
+            <button onclick="window.location.href='chat-bot.html'">Dúvidas e Reclamações</button>
+            <button class="botao" onclick="carregarDados()"> Mostrar dados </button>
+        </div>
+        <div id="entregas">
+            <label for="entregadores">entregadores disponíveis</label>
+            <select name="entregadores" id="entregadores">
+                <option value="nenhum">nenhum entregador disponível</option>    
+            </select>
+
+            
+
+            
+        </div>
+
+    </div>
+    <div class="visu">
+        <div class="prompt" id="display"></div>
+        <div id="console"></div>
+    </div>
+
+    <script src="scriptlocate.js"></script>
+<script>
+const entregadores = document.getElementById("entregadores");
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        console.log(usuarios);
+const pedidos = JSON.parse(localStorage.getItem("pedidosRecebidos")) || [];
+
+
+function renderizarPedidos() {
+    const promptArea = document.getElementById("console");
+  if (pedidos.length === 0) {
+    promptArea.innerHTML = "<h2>Nenhum pedido recebido.</h2>";
+    return;
+  }
+  
+  promptArea.innerHTML = "<h2>Pedidos Recebidos:</h2>";
+
+  pedidos.forEach((pedido, index) => {
+    const div = document.createElement("div");
+    div.classname = ""
+    div.style.border = "1px solid black";
+    div.style.padding = "10px";
+    div.style.margin = "10px";
+    div.style.backgroundcolor=  "darkkhaki";
+    div.style.boxshadow="2px 2px 5px rgb(129, 125, 69)";
+    div.addEventListener('mouseover', () => {
+        div.style.backgroundcolor= "rgb(227, 220, 128)";
+        div.style.boxshadow="2px 2px 5px rgb(129, 125, 69)";
+    });
+    div.addEventListener('mouseout', () => {
+        div.style.backgroundcolor=  "darkkhaki";
+        div.style.boxshadow="2px 2px 5px rgb(129, 125, 69)";
+    });
+
+    let html = `
+      <p><strong>Data:</strong> ${new Date(pedido.data).toLocaleString()}</p>
+      <p><strong>Pagamento:</strong> ${pedido.pagamento}</p>
+      <p><strong>Total:</strong> R$ ${pedido.total.toFixed(2)}</p>
+      <p><strong>Pizzas:</strong></p>
+      <ul>${pedido.itens.pizzas.map(p => `<li>${p.nome} - R$ ${p.preco.toFixed(2)}</li>`).join('')}</ul>
+      <p><strong>Bebidas:</strong></p>
+      <ul>${pedido.itens.bebidas.map(b => `<li>${b.nome} - R$ ${b.preco.toFixed(2)}</li>`).join('')}</ul>
+    `;
+
+    div.innerHTML = html;
+    promptArea.appendChild(div);
+  });
+}
+
+
+
+
+        
+        
+usuarios.forEach((user) => {
+    if (user.tipo === "entregador") {
+            console.log(user);
+            user.status = "disponivel";
+                
+            const option = document.createElement("option");
+            option.value = user.usuario; // ou user.nome, se preferir mostrar nomes
+            option.textContent = user.usuario;
+            entregadores.appendChild(option);
+        }
+    });
+
+        function carregarDados(){
+            const prompt = document.getElementById("display");
+            prompt.innerHTML = "";
+            usuarios.forEach((user) => {
+            if (user.tipo === "entregador") {
+                if(user.status === "disponivel"){
+                    prompt.innerHTML += `<p class = 'dado'>
+                        <b>${user.usuario}</b>, nome do entregador:<b>${user.nome}</b>, status: <span style = 'color:green;'>${user.status}</span></p><br>`
+                }else{
+                    prompt.innerHTML += `<p class = 'dado'>
+                        <b>${user.usuario}</b>, nome do entregador:<b>${user.nome}</b>, status: <span style = 'color:red;'>${user.status}</span></p><br>`
+                }
+                
+            }
+            
+        });
+            renderizarPedidos();
+        }
+
+const dados = [...document.getElementsByClassName("dado")];
+
+dados.forEach((dado) => {
+    dado.addEventListener("click", () => {
+        alert("Cliquei em um dado");
+    });
+});
+
+
+
+        if (entregadores.children.length > 1) {
+            entregadores.removeChild(entregadores.firstElementChild);
+        }
+    
+    </script>
+    
+</body>
+</html>
