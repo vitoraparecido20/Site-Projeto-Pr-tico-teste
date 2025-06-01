@@ -192,6 +192,7 @@ header .content label{
     margin: 5px 0;
     font-size: 19px;
 }
+
 label{
     color: white;
     background: linear-gradient(to right, black, orange, red);
@@ -200,3 +201,5 @@ p{
    color: white;
     background: linear-gradient(to left, green,purple,black);
 }
+
+

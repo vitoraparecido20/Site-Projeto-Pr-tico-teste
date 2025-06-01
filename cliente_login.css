@@ -19,7 +19,11 @@ body{
     box-shadow: 5px 5px 5px 5px gray;
     text-align: center;
     font-size: 40px;
+
     margin-bottom: 15px;
+
+    margin-bottom: 30px;
+
 }
 .conteudo{
     width:100%;
@@ -27,12 +31,15 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+
     justify-content: space-evenly;
+
     
 }
 .conteudo .login{
     width:30%;
     height:30%;
+
     text-decoration: none;
     color: black;
 }
@@ -51,3 +58,18 @@ body{
 .conteudo div:hover{
     transform:scale(1.05);
 }
+=======
+    background-color:rgb(244, 235, 213);
+    margin: 5px auto;
+    box-shadow: 2px 2px 2px 2px gray;
+    font-size: 30px;
+    text-align: center;
+
+    transition: transform .2s;
+
+}
+.conteudo div:hover{
+    transform:scale(1.05);
+    font-size:30px;
+}
+

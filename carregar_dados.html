@@ -7,14 +7,20 @@
     <h1>Tabela de dados do usuario</h1>
     <table>
     <tr class="c1">
+
      <th colspan="5">Tabela de Usuario</th>
+
+     <th colspan="3">Tabela de Usuario</th>
+
     </tr>
 <tr class="c2">
 <th>CPF</th>
 <th>USUARIO</th>
 <th>NOME</th>
+
 <th>User type</th>
 <th>SENHA</th>
+
 
 </tr>
 <tr>
@@ -41,9 +47,11 @@
         <td>${user.cpf}</td>
         <td>${user.usuario}</td>
         <td>${user.nome}</td>
+
         <td>${user.tipo}</td>
         <td>${user.senha}</td>
         
+
       `;
       tabela.appendChild(linha);
     });
